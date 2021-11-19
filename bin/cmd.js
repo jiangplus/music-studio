@@ -137,9 +137,9 @@ var server = http.createServer(function (req, res) {
         res.end(err + '\n');
     }
 });
-server.listen(port);
+server.listen({host: '0.0.0.0', port: port});
 server.on('listening', function () {
-    console.log('listening on http://localhost:' + server.address().port);
+    console.log('listening on http://' + server.address().address + ':' + server.address().port);
 });
 
 var wsock = require('websocket-stream');
